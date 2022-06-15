@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08661D99AA3FF1C896788E37 /* libPods-IncomeExpenses-IncomeExpensesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2409772D46FDEE21992DFC2D /* libPods-IncomeExpenses-IncomeExpensesUITests.a */; };
+		32FF98728D5B04B9B840FA20 /* libPods-IncomeExpensesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290737C28843A7BCCC11BFFC /* libPods-IncomeExpensesTests.a */; };
 		CD71750C285A722F004479F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71750B285A722F004479F1 /* AppDelegate.swift */; };
-		CD71750E285A722F004479F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71750D285A722F004479F1 /* SceneDelegate.swift */; };
-		CD717510285A722F004479F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71750F285A722F004479F1 /* ViewController.swift */; };
-		CD717513285A722F004479F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD717511285A722F004479F1 /* Main.storyboard */; };
+		CD717510285A722F004479F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71750F285A722F004479F1 /* MainViewController.swift */; };
 		CD717516285A722F004479F1 /* IncomeExpenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD717514285A722F004479F1 /* IncomeExpenses.xcdatamodeld */; };
 		CD717518285A7230004479F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD717517285A7230004479F1 /* Assets.xcassets */; };
 		CD71751B285A7230004479F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD717519285A7230004479F1 /* LaunchScreen.storyboard */; };
 		CD717526285A7230004479F1 /* IncomeExpensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717525285A7230004479F1 /* IncomeExpensesTests.swift */; };
 		CD717530285A7230004479F1 /* IncomeExpensesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71752F285A7230004479F1 /* IncomeExpensesUITests.swift */; };
 		CD717532285A7230004479F1 /* IncomeExpensesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717531285A7230004479F1 /* IncomeExpensesUITestsLaunchTests.swift */; };
+		CD717546285A7CE9004479F1 /* MoneyData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717542285A7CE9004479F1 /* MoneyData+CoreDataClass.swift */; };
+		CD717547285A7CE9004479F1 /* MoneyData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717543285A7CE9004479F1 /* MoneyData+CoreDataProperties.swift */; };
+		CD717548285A7CE9004479F1 /* MoneySection+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717544285A7CE9004479F1 /* MoneySection+CoreDataClass.swift */; };
+		CD717549285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717545285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift */; };
+		CD71754B285A840D004479F1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71754A285A840D004479F1 /* MainViewModel.swift */; };
+		CD71754D285A85AE004479F1 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71754C285A85AE004479F1 /* AddTransactionView.swift */; };
+		CDEFC352285A9DC500825BCB /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEFC351285A9DC500825BCB /* LabelExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		167930B407E1BDF74A14F7B6 /* libPods-IncomeExpenses.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IncomeExpenses.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2409772D46FDEE21992DFC2D /* libPods-IncomeExpenses-IncomeExpensesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IncomeExpenses-IncomeExpensesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		290737C28843A7BCCC11BFFC /* libPods-IncomeExpensesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IncomeExpensesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD717508285A722F004479F1 /* IncomeExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncomeExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD71750B285A722F004479F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD71750D285A722F004479F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CD71750F285A722F004479F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CD717512285A722F004479F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD71750F285A722F004479F1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD717515285A722F004479F1 /* IncomeExpenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeExpenses.xcdatamodel; sourceTree = "<group>"; };
 		CD717517285A7230004479F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD71751A285A7230004479F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +59,13 @@
 		CD71752B285A7230004479F1 /* IncomeExpensesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeExpensesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD71752F285A7230004479F1 /* IncomeExpensesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpensesUITests.swift; sourceTree = "<group>"; };
 		CD717531285A7230004479F1 /* IncomeExpensesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpensesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CD717542285A7CE9004479F1 /* MoneyData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CD717543285A7CE9004479F1 /* MoneyData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD717544285A7CE9004479F1 /* MoneySection+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneySection+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CD717545285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneySection+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD71754A285A840D004479F1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		CD71754C285A85AE004479F1 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		CDEFC351285A9DC500825BCB /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FF98728D5B04B9B840FA20 /* libPods-IncomeExpensesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08661D99AA3FF1C896788E37 /* libPods-IncomeExpenses-IncomeExpensesUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,7 @@
 				CD717524285A7230004479F1 /* IncomeExpensesTests */,
 				CD71752E285A7230004479F1 /* IncomeExpensesUITests */,
 				CD717509285A722F004479F1 /* Products */,
+				FB3762FD2D47F8E11D8DA34E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +119,16 @@
 		CD71750A285A722F004479F1 /* IncomeExpenses */ = {
 			isa = PBXGroup;
 			children = (
+				CD71750F285A722F004479F1 /* MainViewController.swift */,
+				CD71754A285A840D004479F1 /* MainViewModel.swift */,
+				CD71754C285A85AE004479F1 /* AddTransactionView.swift */,
+				CD71753E285A7496004479F1 /* Models */,
 				CD71750B285A722F004479F1 /* AppDelegate.swift */,
-				CD71750D285A722F004479F1 /* SceneDelegate.swift */,
-				CD71750F285A722F004479F1 /* ViewController.swift */,
-				CD717511285A722F004479F1 /* Main.storyboard */,
 				CD717517285A7230004479F1 /* Assets.xcassets */,
 				CD717519285A7230004479F1 /* LaunchScreen.storyboard */,
 				CD71751C285A7230004479F1 /* Info.plist */,
 				CD717514285A722F004479F1 /* IncomeExpenses.xcdatamodeld */,
+				CDEFC351285A9DC500825BCB /* LabelExtension.swift */,
 			);
 			path = IncomeExpenses;
 			sourceTree = "<group>";
@@ -128,6 +148,27 @@
 				CD717531285A7230004479F1 /* IncomeExpensesUITestsLaunchTests.swift */,
 			);
 			path = IncomeExpensesUITests;
+			sourceTree = "<group>";
+		};
+		CD71753E285A7496004479F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD717542285A7CE9004479F1 /* MoneyData+CoreDataClass.swift */,
+				CD717543285A7CE9004479F1 /* MoneyData+CoreDataProperties.swift */,
+				CD717544285A7CE9004479F1 /* MoneySection+CoreDataClass.swift */,
+				CD717545285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB3762FD2D47F8E11D8DA34E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				167930B407E1BDF74A14F7B6 /* libPods-IncomeExpenses.a */,
+				2409772D46FDEE21992DFC2D /* libPods-IncomeExpenses-IncomeExpensesUITests.a */,
+				290737C28843A7BCCC11BFFC /* libPods-IncomeExpensesTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD717538285A7230004479F1 /* Build configuration list for PBXNativeTarget "IncomeExpensesTests" */;
 			buildPhases = (
+				1B1ACEC7CBFAA77753A47C1D /* [CP] Check Pods Manifest.lock */,
 				CD71751D285A7230004479F1 /* Sources */,
 				CD71751E285A7230004479F1 /* Frameworks */,
 				CD71751F285A7230004479F1 /* Resources */,
@@ -172,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD71753B285A7230004479F1 /* Build configuration list for PBXNativeTarget "IncomeExpensesUITests" */;
 			buildPhases = (
+				0C790D7EE5DA30B2E8502DE1 /* [CP] Check Pods Manifest.lock */,
 				CD717527285A7230004479F1 /* Sources */,
 				CD717528285A7230004479F1 /* Frameworks */,
 				CD717529285A7230004479F1 /* Resources */,
+				23EDAF48CD10A99788D7D463 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,7 +280,6 @@
 			files = (
 				CD71751B285A7230004479F1 /* LaunchScreen.storyboard in Resources */,
 				CD717518285A7230004479F1 /* Assets.xcassets in Resources */,
-				CD717513285A722F004479F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,15 +299,85 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C790D7EE5DA30B2E8502DE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IncomeExpenses-IncomeExpensesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B1ACEC7CBFAA77753A47C1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IncomeExpensesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23EDAF48CD10A99788D7D463 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IncomeExpenses-IncomeExpensesUITests/Pods-IncomeExpenses-IncomeExpensesUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IncomeExpenses-IncomeExpensesUITests/Pods-IncomeExpenses-IncomeExpensesUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IncomeExpenses-IncomeExpensesUITests/Pods-IncomeExpenses-IncomeExpensesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD717504285A722F004479F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD717510285A722F004479F1 /* ViewController.swift in Sources */,
+				CD71754D285A85AE004479F1 /* AddTransactionView.swift in Sources */,
+				CD717549285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift in Sources */,
+				CD717510285A722F004479F1 /* MainViewController.swift in Sources */,
+				CD717547285A7CE9004479F1 /* MoneyData+CoreDataProperties.swift in Sources */,
+				CD717546285A7CE9004479F1 /* MoneyData+CoreDataClass.swift in Sources */,
 				CD717516285A722F004479F1 /* IncomeExpenses.xcdatamodeld in Sources */,
+				CDEFC352285A9DC500825BCB /* LabelExtension.swift in Sources */,
 				CD71750C285A722F004479F1 /* AppDelegate.swift in Sources */,
-				CD71750E285A722F004479F1 /* SceneDelegate.swift in Sources */,
+				CD717548285A7CE9004479F1 /* MoneySection+CoreDataClass.swift in Sources */,
+				CD71754B285A840D004479F1 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +414,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CD717511285A722F004479F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD717512285A722F004479F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CD717519285A7230004479F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -446,7 +551,7 @@
 				INFOPLIST_FILE = IncomeExpenses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,7 +579,7 @@
 				INFOPLIST_FILE = IncomeExpenses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
