@@ -15,7 +15,7 @@ final class MainViewModel {
     typealias Item = MainViewController.Item
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
     
-    private let viewContext: NSManagedObjectContext? = ((UIApplication.shared.delegate) as? AppDelegate)?.persistentContainer.viewContext
+    private let viewContext: NSManagedObjectContext?
     
     private var subscriptions = Set<AnyCancellable>()
     @Published private(set) var data = (snapshot: Snapshot(), header: HeaderData(expenses: 0.0, income: 0.0, balance: 0.0))
@@ -30,7 +30,16 @@ final class MainViewModel {
         let refresh: PassthroughSubject<Void, Never>
     }
     
+    // Added this to be able to inject the context in unit tests.
+    init(
+        viewContext: NSManagedObjectContext? = ((UIApplication.shared.delegate) as? AppDelegate)?.persistentContainer.viewContext
+    ) {
+        self.viewContext = viewContext
+    }
+    
     func bind(input: Input) {
+        subscriptions.forEach { $0.cancel() }
+        
         let request = input.refresh
             .flatMap { [unowned self] _ in
                 self.fetchData()
@@ -76,7 +85,7 @@ final class MainViewModel {
                 
                 guard let self = self, let viewContext = self.viewContext else { return }
                 
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoneyData") // "MoneySection"
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MoneyData")
                 
                 do {
                     let results = try viewContext.fetch(request)
@@ -107,7 +116,7 @@ final class MainViewModel {
         moneyData.section = section
         
         do {
-            try viewContext.save()
+            try viewContext.saveIfNeeded()
         } catch {
             print("Storing data Failed")
         }
@@ -121,7 +130,7 @@ final class MainViewModel {
         viewContext.delete(item)
         
         do {
-            try viewContext.save()
+            try viewContext.saveIfNeeded()
         } catch {
             print("Storing data Failed")
         }
@@ -137,5 +146,16 @@ extension Date {
         }
         
         return Calendar.current.isDate(self, inSameDayAs: date)
+    }
+}
+
+extension NSManagedObjectContext {
+
+    /// Only performs a save if there are changes to commit.
+    /// - Returns: `true` if a save was needed. Otherwise, `false`.
+    @discardableResult public func saveIfNeeded() throws -> Bool {
+        guard hasChanges else { return false }
+        try save()
+        return true
     }
 }

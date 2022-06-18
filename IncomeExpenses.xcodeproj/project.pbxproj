@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08661D99AA3FF1C896788E37 /* libPods-IncomeExpenses-IncomeExpensesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2409772D46FDEE21992DFC2D /* libPods-IncomeExpenses-IncomeExpensesUITests.a */; };
-		32FF98728D5B04B9B840FA20 /* libPods-IncomeExpensesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290737C28843A7BCCC11BFFC /* libPods-IncomeExpensesTests.a */; };
 		CD71750C285A722F004479F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71750B285A722F004479F1 /* AppDelegate.swift */; };
 		CD717510285A722F004479F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71750F285A722F004479F1 /* MainViewController.swift */; };
 		CD717516285A722F004479F1 /* IncomeExpenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD717514285A722F004479F1 /* IncomeExpenses.xcdatamodeld */; };
@@ -25,6 +23,7 @@
 		CD71754D285A85AE004479F1 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71754C285A85AE004479F1 /* AddTransactionView.swift */; };
 		CDE52D6D285BE94B0029288E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE52D6C285BE94B0029288E /* HeaderView.swift */; };
 		CDE52D6F285BFBA40029288E /* TableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE52D6E285BFBA40029288E /* TableViews.swift */; };
+		CDE52D71285D74450029288E /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE52D70285D74450029288E /* TestCoreDataStack.swift */; };
 		CDEFC352285A9DC500825BCB /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEFC351285A9DC500825BCB /* LabelExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +68,7 @@
 		CD71754C285A85AE004479F1 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		CDE52D6C285BE94B0029288E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		CDE52D6E285BFBA40029288E /* TableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViews.swift; sourceTree = "<group>"; };
+		CDE52D70285D74450029288E /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		CDEFC351285A9DC500825BCB /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32FF98728D5B04B9B840FA20 /* libPods-IncomeExpensesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08661D99AA3FF1C896788E37 /* libPods-IncomeExpenses-IncomeExpensesUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				CD717525285A7230004479F1 /* IncomeExpensesTests.swift */,
+				CDE52D70285D74450029288E /* TestCoreDataStack.swift */,
 			);
 			path = IncomeExpensesTests;
 			sourceTree = "<group>";
@@ -201,7 +200,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD717538285A7230004479F1 /* Build configuration list for PBXNativeTarget "IncomeExpensesTests" */;
 			buildPhases = (
-				1B1ACEC7CBFAA77753A47C1D /* [CP] Check Pods Manifest.lock */,
 				CD71751D285A7230004479F1 /* Sources */,
 				CD71751E285A7230004479F1 /* Frameworks */,
 				CD71751F285A7230004479F1 /* Resources */,
@@ -220,11 +218,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD71753B285A7230004479F1 /* Build configuration list for PBXNativeTarget "IncomeExpensesUITests" */;
 			buildPhases = (
-				0C790D7EE5DA30B2E8502DE1 /* [CP] Check Pods Manifest.lock */,
 				CD717527285A7230004479F1 /* Sources */,
 				CD717528285A7230004479F1 /* Frameworks */,
 				CD717529285A7230004479F1 /* Resources */,
-				23EDAF48CD10A99788D7D463 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,70 +301,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0C790D7EE5DA30B2E8502DE1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IncomeExpenses-IncomeExpensesUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1B1ACEC7CBFAA77753A47C1D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IncomeExpensesTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		23EDAF48CD10A99788D7D463 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IncomeExpenses-IncomeExpensesUITests/Pods-IncomeExpenses-IncomeExpensesUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IncomeExpenses-IncomeExpensesUITests/Pods-IncomeExpenses-IncomeExpensesUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IncomeExpenses-IncomeExpensesUITests/Pods-IncomeExpenses-IncomeExpensesUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CD717504285A722F004479F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -394,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD717526285A7230004479F1 /* IncomeExpensesTests.swift in Sources */,
+				CDE52D71285D74450029288E /* TestCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
