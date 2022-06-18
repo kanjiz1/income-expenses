@@ -142,7 +142,7 @@ final class MainViewController: UIViewController {
         viewModel.$data
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in
-                self?.datasource.apply(data.snapshot)
+                self?.datasource.apply(data.snapshot, animatingDifferences: false)
                 self?.headerView.configure(
                     expenses: data.header.expenses,
                     income: data.header.income,

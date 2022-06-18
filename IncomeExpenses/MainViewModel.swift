@@ -119,6 +119,13 @@ final class MainViewModel {
         }
         
         viewContext.delete(item)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Storing data Failed")
+        }
+        
         completion()
     }
 }
