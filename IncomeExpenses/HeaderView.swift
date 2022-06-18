@@ -98,7 +98,6 @@ final class HeaderView: UIView {
         let progress = UIProgressView()
         progress.progressViewStyle = .default
         progress.translatesAutoresizingMaskIntoConstraints = false
-        progress.trackTintColor = .red
         return progress
     }()
     

@@ -80,9 +80,6 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Income Expenses"
-        
         view.backgroundColor = .white
         
         view.addSubview(headerView)
@@ -97,7 +94,7 @@ final class MainViewController: UIViewController {
             
             switch item {
             case .item(let transaction):
-                cell.configure(description: transaction.description, amount: "$\(transaction.amount)")
+                cell.configure(description: transaction.descriptionData ?? "Transaction", amount: "$\(transaction.amount)")
                 
             case .date(let date):
                 let dateFormatter = DateFormatter()
@@ -159,6 +156,7 @@ final class MainViewController: UIViewController {
         }
         
         let addView = AddTransactionView()
+        addView.delegate = self
         
         addView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(addView)
@@ -174,7 +172,8 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: MainViewControllerProtocol {
     func didTapAdd(type: String, description: String, amount: Double) {
-        
+        viewModel.addItem(type: type, description: description, amount: amount)
+        refresh.send(())
     }
 }
 

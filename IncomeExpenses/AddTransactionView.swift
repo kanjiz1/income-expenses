@@ -9,7 +9,7 @@ import UIKit
 
 final class AddTransactionView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    private weak var delegate: MainViewControllerProtocol?
+    weak var delegate: MainViewControllerProtocol?
     private var dataType: MoneyData.DataType?
     
     private(set) lazy var addButton: UIButton = {
