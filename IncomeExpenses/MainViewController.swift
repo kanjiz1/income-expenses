@@ -107,9 +107,9 @@ final class MainViewController: UIViewController {
                 let amount: String
                 switch transaction.dataType {
                 case .income:
-                    amount = "$\(transaction.amount)"
+                    amount = "$\(transaction.amount.roundToDecimal(2))"
                 case .expense:
-                    amount = "-$\(transaction.amount)"
+                    amount = "-$\(transaction.amount.roundToDecimal(2))"
                 case .none:
                     amount = ""
                 }

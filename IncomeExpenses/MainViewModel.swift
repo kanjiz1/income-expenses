@@ -54,12 +54,21 @@ final class MainViewModel {
             var totalIncome: Double = 0.0
             var totalExpenses: Double = 0.0
             
-            let sections = result.compactMap { $0.section }
-                .compactMap { section -> Date? in
-                    totalIncome += section.totalIncome
-                    totalExpenses += section.totalExpenses
-                    return section.date
+            let sections = result
+                .compactMap { data -> MoneySection? in
+                    switch data.dataType {
+                    case .income:
+                        totalIncome += data.amount
+                    case .expense:
+                        totalExpenses += data.amount
+                    default:
+                        break
+                    }
+                    
+                    return data.section
                 }
+                .compactMap { $0.date }
+                .sorted(by: { $0 > $1 })
             
             sections
                 .forEach { date in
@@ -73,7 +82,7 @@ final class MainViewModel {
                 snapshot.appendItems([.item(transaction: data)], toSection: .section(date: sections.first(where: { $0.isSameDay(as: data.section?.date) })!))
             }
             
-            header = HeaderData(expenses: totalExpenses, income: totalIncome, balance: (totalIncome - totalExpenses))
+            header = HeaderData(expenses: totalExpenses.roundToDecimal(2), income: totalIncome.roundToDecimal(2), balance: (totalIncome - totalExpenses).roundToDecimal(2))
             self.data = (snapshot: snapshot, header: header)
         }
         .store(in: &subscriptions)
@@ -157,5 +166,12 @@ extension NSManagedObjectContext {
         guard hasChanges else { return false }
         try save()
         return true
+    }
+}
+
+extension Double {
+    func roundToDecimal(_ fractionDigits: Int) -> Double {
+        let multiplier = pow(10, Double(fractionDigits))
+        return Darwin.round(self * multiplier) / multiplier
     }
 }

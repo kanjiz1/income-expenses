@@ -54,6 +54,9 @@ final class IncomeExpensesTests: XCTestCase {
         viewModel.bind(input: MainViewModel.Input(refresh: refresh))
         viewModel.$data.sink { data in
             if !data.snapshot.itemIdentifiers.isEmpty {
+                XCTAssert(data.header.income == 10000.00)
+                XCTAssert(data.header.expenses == 2385.00)
+                XCTAssert(data.header.balance == 7615.00)
                 XCTAssert(data.snapshot.numberOfSections == 1)
                 XCTAssert(data.snapshot.numberOfItems == 4)
                 exp.fulfill()
