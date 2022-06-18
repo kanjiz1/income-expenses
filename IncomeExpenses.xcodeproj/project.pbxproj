@@ -23,6 +23,8 @@
 		CD717549285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD717545285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift */; };
 		CD71754B285A840D004479F1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71754A285A840D004479F1 /* MainViewModel.swift */; };
 		CD71754D285A85AE004479F1 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD71754C285A85AE004479F1 /* AddTransactionView.swift */; };
+		CDE52D6D285BE94B0029288E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE52D6C285BE94B0029288E /* HeaderView.swift */; };
+		CDE52D6F285BFBA40029288E /* TableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE52D6E285BFBA40029288E /* TableViews.swift */; };
 		CDEFC352285A9DC500825BCB /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEFC351285A9DC500825BCB /* LabelExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		CD717545285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneySection+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD71754A285A840D004479F1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		CD71754C285A85AE004479F1 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		CDE52D6C285BE94B0029288E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		CDE52D6E285BFBA40029288E /* TableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViews.swift; sourceTree = "<group>"; };
 		CDEFC351285A9DC500825BCB /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,13 +126,15 @@
 				CD71750F285A722F004479F1 /* MainViewController.swift */,
 				CD71754A285A840D004479F1 /* MainViewModel.swift */,
 				CD71754C285A85AE004479F1 /* AddTransactionView.swift */,
+				CDE52D6C285BE94B0029288E /* HeaderView.swift */,
+				CDE52D6E285BFBA40029288E /* TableViews.swift */,
 				CD71753E285A7496004479F1 /* Models */,
+				CDEFC351285A9DC500825BCB /* LabelExtension.swift */,
 				CD71750B285A722F004479F1 /* AppDelegate.swift */,
 				CD717517285A7230004479F1 /* Assets.xcassets */,
 				CD717519285A7230004479F1 /* LaunchScreen.storyboard */,
 				CD71751C285A7230004479F1 /* Info.plist */,
 				CD717514285A722F004479F1 /* IncomeExpenses.xcdatamodeld */,
-				CDEFC351285A9DC500825BCB /* LabelExtension.swift */,
 			);
 			path = IncomeExpenses;
 			sourceTree = "<group>";
@@ -369,12 +375,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD71754D285A85AE004479F1 /* AddTransactionView.swift in Sources */,
+				CDE52D6F285BFBA40029288E /* TableViews.swift in Sources */,
 				CD717549285A7CE9004479F1 /* MoneySection+CoreDataProperties.swift in Sources */,
 				CD717510285A722F004479F1 /* MainViewController.swift in Sources */,
 				CD717547285A7CE9004479F1 /* MoneyData+CoreDataProperties.swift in Sources */,
 				CD717546285A7CE9004479F1 /* MoneyData+CoreDataClass.swift in Sources */,
 				CD717516285A722F004479F1 /* IncomeExpenses.xcdatamodeld in Sources */,
 				CDEFC352285A9DC500825BCB /* LabelExtension.swift in Sources */,
+				CDE52D6D285BE94B0029288E /* HeaderView.swift in Sources */,
 				CD71750C285A722F004479F1 /* AppDelegate.swift in Sources */,
 				CD717548285A7CE9004479F1 /* MoneySection+CoreDataClass.swift in Sources */,
 				CD71754B285A840D004479F1 /* MainViewModel.swift in Sources */,

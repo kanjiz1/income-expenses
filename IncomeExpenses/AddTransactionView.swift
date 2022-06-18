@@ -25,6 +25,20 @@ final class AddTransactionView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         return button
     }()
     
+    private lazy var closeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+        button.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        
+        button.addTarget(self, action: #selector(close), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageView?.contentMode = .scaleAspectFill
+        button.imageView?.tintColor = .black
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        return button
+    }()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Add Transaction"
@@ -32,6 +46,17 @@ final class AddTransactionView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         label.font = .systemFont(ofSize: 15.0)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Some fields are missing"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 15.0)
+        label.textColor = .red
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
         return label
     }()
     
@@ -105,10 +130,17 @@ final class AddTransactionView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         addSubview(descriptionTextView)
         addSubview(amountTextView)
         addSubview(addButton)
+        addSubview(errorLabel)
+        addSubview(closeButton)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15.0),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            closeButton.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0),
+            closeButton.widthAnchor.constraint(equalToConstant: 20.0),
+            closeButton.heightAnchor.constraint(equalToConstant: 20.0),
             
             transactionTypeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0),
             transactionTypeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -130,7 +162,10 @@ final class AddTransactionView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
             addButton.heightAnchor.constraint(equalToConstant: 50),
             addButton.widthAnchor.constraint(equalToConstant: 120.0),
             addButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            addButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15.0)
+            
+            errorLabel.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 15.0),
+            errorLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15.0),
         ])
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEdit)))
@@ -149,12 +184,17 @@ final class AddTransactionView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    @objc private func close() {
+        removeFromSuperview()
+    }
+    
     @objc private func didTapAdd() {
         guard let dataType = dataType,
               let description = descriptionTextView.text,
               let amountText = amountTextView.text?.filter({ $0 != "$" }),
               let amount = Double(amountText)
         else {
+            errorLabel.isHidden = false
             return
         }
 
