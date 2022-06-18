@@ -163,7 +163,7 @@ final class HeaderView: UIView {
     func configure(expenses: Double, income: Double, balance: Double) {
         expensesLabel.text = "$\(expenses)"
         incomeLabel.text = "$\(income)"
-        balanceLabel.text = balance > 0 ? "$\(balance)" : "-$\(balance)"
+        balanceLabel.text = balance > 0 ? "$\(balance)" : "-$\(abs(balance))"
         
         progressView.progress = Float(expenses / income)
         

@@ -61,7 +61,7 @@ final class MainViewController: UIViewController {
     }()
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundView?.backgroundColor = .white
         tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +72,8 @@ final class MainViewController: UIViewController {
         tableView.register(MyCell.self, forCellReuseIdentifier: MyCell.reuseIdentifier)
         tableView.separatorStyle = .singleLine
         tableView.sectionHeaderTopPadding = 15
+        tableView.allowsSelection = false
+        tableView.allowsSelectionDuringEditing = true
         tableView.delegate = self
         return tableView
     }()
@@ -125,8 +127,9 @@ final class MainViewController: UIViewController {
         deletionCompleted = { [weak self] item in
             switch item {
             case .item(let transaction):
-                self?.viewModel.delete(item: transaction)
-                break
+                self?.viewModel.delete(item: transaction) {
+                    self?.refresh.send(())
+                }
                 
             case .date:
                 break
@@ -195,8 +198,7 @@ extension MainViewController: MainViewControllerProtocol {
 }
 
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
             guard let self = self else { return }
             let snapshot = self.datasource.snapshot()
@@ -209,73 +211,6 @@ extension MainViewController: UITableViewDelegate {
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cornerRadius: CGFloat = 0.0
-        cell.backgroundColor = UIColor.clear
-        let layer: CAShapeLayer = CAShapeLayer()
-        let pathRef: CGMutablePath = CGMutablePath()
-        let bounds: CGRect = cell.bounds.insetBy(dx: 8, dy: 0)
-        var addLine: Bool = false
-        
-        if indexPath.row == 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            pathRef.__addRoundedRect(transform: nil, rect: bounds, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
-            
-        } else if indexPath.row == 0 {
-            pathRef.move(to: CGPoint(x: bounds.minX, y: bounds.maxY))
-            pathRef.addArc(tangent1End: CGPoint(x: bounds.minX, y: bounds.minY),
-                           tangent2End: CGPoint(x: bounds.midX, y: bounds.minY),
-                           radius: cornerRadius)
-            
-            pathRef.addArc(tangent1End: CGPoint(x: bounds.maxX, y: bounds.minY),
-                           tangent2End: CGPoint(x: bounds.maxX, y: bounds.midY),
-                           radius: cornerRadius)
-            pathRef.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
-            addLine = true
-            
-        } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            pathRef.move(to: CGPoint(x: bounds.minX, y: bounds.minY))
-            pathRef.addArc(tangent1End: CGPoint(x: bounds.minX, y: bounds.maxY),
-                           tangent2End: CGPoint(x: bounds.midX, y: bounds.maxY),
-                           radius: cornerRadius)
-            
-            pathRef.addArc(tangent1End: CGPoint(x: bounds.maxX, y: bounds.maxY),
-                           tangent2End: CGPoint(x: bounds.maxX, y: bounds.midY),
-                           radius: cornerRadius)
-            pathRef.addLine(to: CGPoint(x: bounds.maxX, y: bounds.minY))
-            
-        } else {
-            pathRef.move(to: CGPoint(x: bounds.minX, y: bounds.minY))
-            pathRef.addArc(tangent1End: CGPoint(x: bounds.minX, y: bounds.maxY),
-                           tangent2End: CGPoint(x: bounds.midX, y: bounds.maxY),
-                           radius: cornerRadius)
-            
-            pathRef.move(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
-            pathRef.addArc(tangent1End: CGPoint(x: bounds.maxX, y: bounds.maxY),
-                           tangent2End: CGPoint(x: bounds.maxX, y: bounds.midY),
-                           radius: cornerRadius)
-            pathRef.addLine(to: CGPoint(x: bounds.maxX, y: bounds.minY))
-            addLine = true
-        }
-        
-        layer.path = pathRef
-        layer.strokeColor = UIColor.lightGray.cgColor
-        layer.lineWidth = 1.0
-        layer.fillColor = UIColor.clear.cgColor
-        
-        if addLine == true {
-            let lineLayer: CALayer = CALayer()
-            let lineHeight: CGFloat = (1 / UIScreen.main.scale)
-            lineLayer.frame = CGRect(x: bounds.minX, y: bounds.size.height - lineHeight, width: bounds.size.width, height: lineHeight)
-            lineLayer.backgroundColor = UIColor.clear.cgColor
-            layer.addSublayer(lineLayer)
-        }
-        
-        let backgroundView: UIView = UIView(frame: bounds)
-        backgroundView.layer.insertSublayer(layer, at: 0)
-        backgroundView.backgroundColor = .clear
-        cell.backgroundView = backgroundView
     }
 }
 

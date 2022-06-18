@@ -113,12 +113,13 @@ final class MainViewModel {
         }
     }
     
-    func delete(item: MoneyData) {
+    func delete(item: MoneyData, completion: @escaping () -> Void) {
         guard let viewContext = viewContext else {
             return
         }
         
         viewContext.delete(item)
+        completion()
     }
 }
 
