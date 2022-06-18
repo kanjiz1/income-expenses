@@ -80,8 +80,12 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Income Expenses"
+        
         view.backgroundColor = .white
         
+        view.addSubview(headerView)
         view.addSubview(tableView)
         view.addSubview(addButton)
         
@@ -123,18 +127,22 @@ final class MainViewController: UIViewController {
             .sink { [weak self] data in
                 self?.datasource.apply(data.snapshot)
                 self?.headerView.configure(
-                    expenses: "$\(data.header.expenses)",
-                    income: "$\(data.header.income)",
-                    balance: "$\(data.header.balance)"
+                    expenses: data.header.expenses,
+                    income: data.header.income,
+                    balance: data.header.balance
                 )
             }
             .store(in: &subscriptions)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            headerView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 50.0),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0),
+            
+            tableView.topAnchor.constraint(equalTo: headerView.layoutMarginsGuide.bottomAnchor, constant: 20.0),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0),
             
             addButton.heightAnchor.constraint(equalToConstant: 50.0),
             addButton.widthAnchor.constraint(equalToConstant: 50.0),
