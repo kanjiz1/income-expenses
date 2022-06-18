@@ -53,12 +53,15 @@ final class MainViewModel {
                 }
             
             sections
-                .forEach {
-                    snapshot.appendSections([.section(date: $0)])
+                .forEach { date in
+                    if !snapshot.sectionIdentifiers.contains(where: { $0.date.isSameDay(as: date) }) {
+                        snapshot.appendSections([.section(date: date)])
+                        snapshot.appendItems([.date(date: date)], toSection: .section(date: date))
+                    }
                 }
             
             result.forEach { data in
-                snapshot.appendItems([.item(transaction: data)], toSection: .section(date: sections.first(where: { $0 == data.section?.date })!))
+                snapshot.appendItems([.item(transaction: data)], toSection: .section(date: sections.first(where: { $0.isSameDay(as: data.section?.date) })!))
             }
             
             header = HeaderData(expenses: totalExpenses, income: totalIncome, balance: (totalIncome - totalExpenses))
@@ -116,5 +119,15 @@ final class MainViewModel {
         }
         
         viewContext.delete(item)
+    }
+}
+
+extension Date {
+    func isSameDay(as date: Date?) -> Bool {
+        guard let date = date else {
+            return false
+        }
+        
+        return Calendar.current.isDate(self, inSameDayAs: date)
     }
 }

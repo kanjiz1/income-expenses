@@ -19,6 +19,13 @@ final class MainViewController: UIViewController {
     
     enum Section: Hashable {
         case section(date: Date)
+        
+        var date: Date {
+            switch self {
+            case .section(let date):
+                return date
+            }
+        }
     }
     
     enum Item: Hashable {
@@ -65,6 +72,7 @@ final class MainViewController: UIViewController {
         tableView.register(MyCell.self, forCellReuseIdentifier: MyCell.reuseIdentifier)
         tableView.separatorStyle = .singleLine
         tableView.sectionHeaderTopPadding = 15
+        tableView.delegate = self
         return tableView
     }()
     
@@ -94,7 +102,16 @@ final class MainViewController: UIViewController {
             
             switch item {
             case .item(let transaction):
-                cell.configure(description: transaction.descriptionData ?? "Transaction", amount: "$\(transaction.amount)")
+                let amount: String
+                switch transaction.dataType {
+                case .income:
+                    amount = "$\(transaction.amount)"
+                case .expense:
+                    amount = "-$\(transaction.amount)"
+                case .none:
+                    amount = ""
+                }
+                cell.configure(description: transaction.descriptionData ?? "Transaction", amount: amount)
                 
             case .date(let date):
                 let dateFormatter = DateFormatter()
